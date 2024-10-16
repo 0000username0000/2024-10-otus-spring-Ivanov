@@ -7,6 +7,7 @@ import ru.otus.hw.dao.CsvQuestionDao;
 public class TestServiceImpl implements TestService {
 
     private final IOService ioService;
+
     private final CsvQuestionDao csvQuestionDao;
 
     @Override
@@ -15,7 +16,7 @@ public class TestServiceImpl implements TestService {
         ioService.printFormattedLine("Please answer the questions below%n");
         csvQuestionDao.findAll().forEach(question -> {
             ioService.printLine("-----------------------------------");
-            ioService.printLine(question.text() +"\n");
+            ioService.printLine(question.text() + "\n");
             question.answers().forEach(answer -> ioService.printLine(answer.text()));
         });
         ioService.printLine("-----------------------------------");
